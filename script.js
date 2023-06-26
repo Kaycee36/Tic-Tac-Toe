@@ -18,19 +18,17 @@ const winningMessageTextElement = document.querySelector('[data-winning-message-
 const restartButton = document.getElementById('restartButton')
 let circleTurn
 
-let audioWin = new Audio('Assets/win_sfx.mp3')
-let audioDraw = new Audio('Assets/draw_sfx.mp3')
-let audioBG = new Audio('Assets/BG_music.mp3')
-let x_sfx = new Audio('Assets/x_sfx.mp3')
-let o_sfx = new Audio('Assets/circle_sfx.mp3')
+const audioWin = new Audio('Assets/win_sfx.mp3')
+const audioDraw = new Audio('Assets/draw_sfx.mp3')
+const audioBG = new Audio('BG_music.mp3')
+const x_sfx = new Audio('Assets/x_sfx.mp3')
+const o_sfx = new Audio('Assets/circle_sfx.mp3')
 
-
-
-
-startGame()
-audioBG.play()
+audioBG.play()  
 audioBG.loop = true
-audioBG.volume = 0.1
+startGame()
+
+
 
 restartButton.addEventListener('click', startGame)
 
@@ -42,8 +40,10 @@ cellElements.forEach(cell => {
     cell.removeEventListener('click', handleClick)
     cell.addEventListener('click', handleClick, { once: true})
 })
-  setBoardHoverClass()
-  winningMessageElement.classList.remove('show')
+    setBoardHoverClass()
+    winningMessageElement.classList.remove('show')
+    audioBG.play()  
+    audioBG.loop = true
 }
 
 function handleClick(e){
@@ -53,7 +53,7 @@ function handleClick(e){
     placeMark(cell, currentClass)
     if(circleTurn == true){
         o_sfx.play()
-    }else{
+    }else if(circleTurn == false){
         x_sfx.play()
     }
 
@@ -67,7 +67,7 @@ function handleClick(e){
     }else if(isDraw()){
         endGame(true)
         audioDraw.play()
-        audioDraw.volume = 0.1
+        audioDraw.volume = 0.5
 
     //Switch Turns & Hover thingy
     }else{

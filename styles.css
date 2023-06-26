@@ -231,3 +231,20 @@ h1{
 		opacity: 0;
 	}
 }
+
+footer, a{
+    position: fixed;
+    font-family: Montserrat, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(235, 231, 231);
+    text-align: center;
+    line-height: 0.5;
+
+    margin: 0;
+    bottom:0;
+    height: 6em; width: 100%;
+    background-color: #232222;
+    padding: 1px 0;
+    display: block;
+}
