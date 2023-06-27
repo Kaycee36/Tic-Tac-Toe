@@ -248,3 +248,24 @@ footer, a{
     padding: 1px 0;
     display: block;
 }
+
+.score{
+    color: white;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    padding: 1px 0;
+    position: fixed;
+    margin-top: 2rem;
+    display: block;
+    height: 6em; width: 100%;
+}
+
+span>h2, #xScore, #oScore, #drawScore{
+    display: inline;
+    margin: auto;
+    font-size: 5em;
+}
+
+#draws, #playerO{
+    margin-left:8em;
+}

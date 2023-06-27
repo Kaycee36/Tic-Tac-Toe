@@ -10,8 +10,9 @@ Start: June 25, 2023-->
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    <div class="wrapper">
+    <div class="wrapper"><!--For the animated background-->
 		<span></span>
 		<span></span>
 		<span></span>
@@ -24,6 +25,20 @@ Start: June 25, 2023-->
 		<span></span>   
 </div>
 
+    <div class="score">
+        <span >
+            <h2 id="playerX">Player X: </h2>
+            <label id="xScore">0</label>
+        </span>
+        <span id="draws">
+            <h2>Draws: </h2>
+            <label id="drawScore">0</label>
+        </span>
+        <span id="playerO">
+            <h2>Player O: </h2>
+            <label id="oScore">0</label>
+        </span>
+    </div>
     <div class="board" id="board">
         <div class="cell" data-cell ></div>
         <div class="cell" data-cell></div>

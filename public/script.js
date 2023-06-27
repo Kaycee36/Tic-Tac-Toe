@@ -17,6 +17,9 @@ const winningMessageElement = document.getElementById('winningMessage')
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 const restartButton = document.getElementById('restartButton')
 let circleTurn
+let drawCount = 0;
+let xCount = 0;
+let oCount = 0;
 
 const audioWin = new Audio('Assets/win_sfx.mp3')
 const audioDraw = new Audio('Assets/draw_sfx.mp3')
@@ -24,10 +27,10 @@ const audioBG = new Audio('BG_music.mp3')
 const x_sfx = new Audio('Assets/x_sfx.mp3')
 const o_sfx = new Audio('Assets/circle_sfx.mp3')
 
+
 audioBG.play()  
 audioBG.loop = true
 startGame()
-
 
 
 restartButton.addEventListener('click', startGame)
@@ -67,12 +70,11 @@ function handleClick(e){
     }else if(isDraw()){
         endGame(true)
         audioDraw.play()
-        audioDraw.volume = 0.5
+        audioDraw.volume = 0.1
 
     //Switch Turns & Hover thingy
     }else{
         swapTurns()
-
         setBoardHoverClass()
     }
 }
@@ -93,15 +95,23 @@ function setBoardHoverClass(){
         board.classList.add(CIRCLE_CLASS)
     }else{
         board.classList.add(X_Class)
-
     }
 }
 
 function endGame(draw){
     if(draw) {
         winningMessageTextElement.innerText = 'Draw!'
+        drawCount+=1
+        document.getElementById('drawScore').innerHTML = drawCount
     }else{
         winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
+        if(circleTurn){
+            oCount+=1
+            document.getElementById('oScore').innerHTML = oCount
+        }else{
+            xCount+=1
+            document.getElementById('xScore').innerHTML = xCount
+        }
     }
     winningMessageElement.classList.add('show')
 }
