@@ -279,6 +279,9 @@ span>h2, #xScore, #oScore, #drawScore{
 
 #draws, #playerO{
     margin-left:2em;
+    @media screen and (max-width: 480px) {
+        margin-left: 0;
+    }
 }
 
 @media screen and (max-width: 600px) {
