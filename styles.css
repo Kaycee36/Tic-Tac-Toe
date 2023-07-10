@@ -3,14 +3,13 @@
 }
 
 :root{
-    --cell-size: 180px;
-    --mark-size: calc(var(--cell-size) * .9);
+    --cell-size: 120px;
+    --mark-size: calc(var(--cell-size) * 0.9);
 }
 
 body{
     margin: 0;
     font-weight: 100;
-    
     background: #111;
 	height: 100vh;
 }
@@ -31,9 +30,10 @@ h1{
     display: grid;
     justify-content: center;
     align-content: center;
-    grid-template-columns: repeat(3, auto);
+    /*grid-template-columns: repeat(3, auto);*/
+    grid-template-columns: repeat(3, var(--cell-size));
     justify-items: center;
-    position: absolute
+    position: absolute;
 }
 
 .cell{
@@ -137,6 +137,9 @@ h1{
     color:white;
     font-size: 5rem;
     flex-direction: column;
+    @media screen and (max-width: 480px) {
+        font-size: 3rem;
+    }
 }
 
 .winning-message button{
@@ -256,16 +259,71 @@ footer, a{
     padding: 1px 0;
     position: fixed;
     margin-top: 2rem;
-    display: block;
+    display: flex;
+    justify-content: center;
     height: 6em; width: 100%;
+
+    @media screen and (max-width: 480px) {
+        flex-direction: column;
+        height: auto;
+        margin-top: 1rem;
+    }
 }
 
 span>h2, #xScore, #oScore, #drawScore{
     display: inline;
     margin: auto;
     font-size: 5em;
+    margin: 0.5rem;
 }
 
 #draws, #playerO{
-    margin-left:8em;
+    margin-left:2em;
 }
+
+@media screen and (max-width: 600px) {
+    :root {
+      --cell-size: 100px;
+      --mark-size: calc(var(--cell-size) * 0.9);
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .board {
+      grid-template-columns: repeat(3, var(--cell-size));
+      gap: 10px;
+    }
+  
+    .cell {
+      width: var(--cell-size);
+      height: var(--cell-size);
+      font-size: 1.5rem;
+    }
+    
+    .winning-message {
+      font-size: 3rem;
+    }
+  
+    .winning-message button {
+      font-size: 2rem;
+      margin-top: 2rem;
+    }
+  
+    .score {
+        text-align: center;
+        padding: 1px 0;
+        margin-top: 4rem;
+        height: 6em;
+        width: 100%;
+      }
+      
+      .score span > h2,
+      #xScore,
+      #oScore,
+      #drawScore {
+        display: inline-block;
+        font-size: 25px;
+      }       
+  }
