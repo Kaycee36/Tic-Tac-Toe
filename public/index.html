@@ -30,12 +30,12 @@ Start: June 25, 2023-->
             <h2 id="playerX">Player X: </h2>
             <label id="xScore">0</label>
         </span>
-        <span id="draws">
-            <h2>Draws   : </h2>
+        <span>
+            <h2 id="draws">Draws: </h2>
             <label id="drawScore">0</label>
         </span>
-        <span id="playerO">
-            <h2>Player O: </h2>
+        <span>
+            <h2 id="playerO">Player O: </h2>
             <label id="oScore">0</label>
         </span>
     </div>
@@ -49,11 +49,20 @@ Start: June 25, 2023-->
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
+        
     </div>
 
     <div class="winning-message" id="winningMessage">
         <div data-winning-message-text></div>
-        <button id="restartButton">Restart</button>
+        
+        <button id="restartButton">Restart Game</button>
+
+        <button id="resetScores" onclick="
+        score.oCount = 0; 
+        score.xCount = 0; 
+        score.drawCount = 0;
+        localStorage.removeItem('score');">Reset Score</button>
+        
     </div>
 
     <footer>
