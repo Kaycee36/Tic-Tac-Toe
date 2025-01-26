@@ -3,7 +3,7 @@
 
 # Tic-Tac-Toe
 Just a simple Tic Tac Toe game website to learn HTML, CSS, and JavaScript. 
-Also learned how to deploy and host website using Firebase.
+Also learned how to deploy and host website
 
 # Link
 https://tic-tac-toe-97a7e.web.app
